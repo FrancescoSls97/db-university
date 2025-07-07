@@ -22,38 +22,40 @@ Table Name: University db
 
 ## department
 
-- id
-- dp_name
-- dp_address
+- id | BIGINT NOT NULL AUTO INCREMENT
+- dp_name | VARCHAR(50) NOT NULL
+- dp_address | VARCHAR(50) NOT NULL
 
 ## course
 
-- id
-- subject
-- class_days
+- id BIGINT NOT NULL AUTO INCREMENT
+- subject_id | VARCHAR(30) NOT NULL
 
 ## teacher
 
-- id
-- name
-- last_name
-- eMail
-- teached_subject
+- id BIGINT NOT NULL AUTO INCREMENT
+- name | VARCHAR(20) NOT NULL
+- last_name | VARCHAR(20) NOT NULL
+- eMail | VARCHAR(50) NULL
+- teached_subject | VARCHAR(30) NOT NULL
 
 ## student
 
-- id
-- name
-- last_name
-- eMail
+- id BIGINT NOT NULL AUTO INCREMENT
+- name | VARCHAR(30) NOT NULL
+- last_name | VARCHAR(30) NOT NULL
+- eMail | VARCHAR(50) NULL
 
 ## exan
 
-- id
-- date
-- result
+- id BIGINT NOT NULL AUTO INCREMENT
+- subject_id | VARCHAR(50) NOT NULL
+- student_id | VARCHAR(50) NULL
+- date | DATE NOT NULL
+- result | VARCHAR(10) NOT NULL
 
 ## subject
 
-- id
-- type
+- id BIGINT NOT NULL AUTO INCREMENT
+- type | VARCHAR(50) NOT NULL
+- class_days | DATE NOT NULL
