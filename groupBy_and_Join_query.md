@@ -24,4 +24,23 @@ select count(\*) as `degrees_for_department`, `department_id`
 from `degrees`
 group by `department_id`
 
-Join: 5. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia 6. Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze 7. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44) 8. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome 9. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti 10. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54) 11. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18
+Join:
+
+5. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
+
+select \*
+from `students`
+join `degrees`
+on `students`.`degree_id` = `degrees`.`id`
+where `degrees`.`name` like "Corso di Laurea in Economia"
+
+6. Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze
+
+select \*
+from `degrees`
+join `departments`
+on `degrees`.`level` = `departments`.`name`
+where `degrees`.`level` like "Magistrale" and `departments`.`name` like "Neuroscienze"
+
+7. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
+8. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome 9. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti 10. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54) 11. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18
