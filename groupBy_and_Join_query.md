@@ -43,4 +43,13 @@ on `degrees`.`level` = `departments`.`name`
 where `degrees`.`level` like "Magistrale" and `departments`.`name` like "Neuroscienze"
 
 7. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
-8. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome 9. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti 10. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54) 11. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18
+
+select \*
+from `courses`
+join `course_teacher`
+on `courses`.`id` = `course_teacher`.`teacher_id`
+where `teacher_id` = "44"
+
+8. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome 9. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+9. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
+10. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18
