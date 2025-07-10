@@ -50,6 +50,25 @@ join `course_teacher`
 on `courses`.`id` = `course_teacher`.`teacher_id`
 where `teacher_id` = "44"
 
-8. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome 9. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
-9. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
-10. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18
+8. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
+
+select \*
+from `students`
+join `degrees`
+on `students`.`degree_id` = `degrees`.`department_id`
+order by `students`.`surname` asc, `students`.`name` asc
+
+9. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+
+select \*
+from `degrees`
+join `courses`
+on `courses`.`degree_id` = `degrees`.`id`
+join `course_teacher`
+on `course_teacher`.`course_id` = `courses`.`id`
+join `teachers`
+on `teachers`.`id` = `course_teacher`.`teacher_id`
+
+10. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
+
+11. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18
